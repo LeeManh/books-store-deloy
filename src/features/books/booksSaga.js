@@ -5,6 +5,7 @@ import {
   succeededFecthAllBooks,
   failedFetchAllBooks,
   REQUEST_FETCH_ALL_BOOKS,
+  REQUEST_FETCH_BOOK,
 } from "./booksSlice";
 import { booksApi } from "../../api/booksApi";
 

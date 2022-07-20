@@ -10,6 +10,15 @@ import { stringToSlug } from "../../unity";
 
 //action from UI to Saga middleware
 export const REQUEST_FETCH_ALL_BOOKS = "REQUEST_FETCH_ALL_BOOKS";
+export const REQUEST_FETCH_BOOK = "REQUEST_FETCH_BOOK";
+export const requestFetchBook = (id) => {
+  return {
+    type: REQUEST_FETCH_BOOK,
+    payload: {
+      id,
+    },
+  };
+};
 
 const initialState = {
   listBooks: [],

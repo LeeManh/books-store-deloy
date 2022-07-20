@@ -6,6 +6,7 @@ import Banner from "../components/Banner";
 import ListBooks from "../features/books/ListBooks";
 import FilterBook from "../features/filter/FilterBook";
 import InputFilter from "../features/filter/InputFilter";
+import Pagination from "../components/Pagination";
 
 const HomeWrapper = styled.div`
   --width-filter: 240px;
@@ -39,6 +40,9 @@ const Content = styled.div`
     width: 100%;
   }
 `;
+const PaginationWrapper = styled.div`
+  text-align: end;
+`;
 
 const Home = () => {
   return (
@@ -53,6 +57,9 @@ const Home = () => {
           <Banner />
           <InputFilter />
           <ListBooks />
+          <PaginationWrapper>
+            <Pagination />
+          </PaginationWrapper>
         </Content>
       </HomeWrapper>
     </Section>
