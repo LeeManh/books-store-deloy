@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
 
-function App() {
+import { GlobalStyles } from "./globalStyles";
+import Home from "./pages/Home";
+import Layout from "./components/Layout/Layout";
+import DetailsBookPage from "./pages/DetailsBookPage";
+import CartPage from "./pages/CartPage";
+import SearchResultPage from "./pages/SearchResultPage";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+
+          <Route path="books">
+            <Route path=":idBook" element={<DetailsBookPage />} />
+          </Route>
+
+          <Route path="search" element={<SearchResultPage />} />
+
+          <Route path="cart" element={<CartPage />} />
+
+          <Route path="*" element={<div>Missing..</div>} />
+        </Route>
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
