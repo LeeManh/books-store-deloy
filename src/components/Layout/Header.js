@@ -128,7 +128,7 @@ const Header = () => {
               allowClear
               enterButton={
                 <>
-                  <BiSearchAlt /> <p>Tìm kiếm</p>
+                  <BiSearchAlt />
                 </>
               }
               size="large"

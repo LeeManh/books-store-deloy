@@ -8,7 +8,7 @@ import { selectFilter } from "./filterSlice";
 import { categoryChange, rateChange, pricesChange } from "./filterSlice";
 
 const Container = styled.div`
-  padding: 20px;
+  padding: 0 20px;
 `;
 
 const CustomTag = styled(Tag)`

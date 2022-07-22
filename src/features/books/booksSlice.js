@@ -5,6 +5,7 @@ import {
   selectFilterCategory,
   selectFilterRate,
   selectFilterPrices,
+  selectFilterSort,
 } from "../filter/filterSlice";
 import { stringToSlug } from "../../unity";
 
@@ -82,9 +83,25 @@ export const getSimilarBooks = createSelector(
 
 //filter
 export const selectBooksFilter = createSelector(
-  [selectBooks, selectFilterCategory, selectFilterRate, selectFilterPrices],
-  (listBooks, category, rate, prices) => {
-    return listBooks.filter(
+  [
+    selectBooks,
+    selectFilterCategory,
+    selectFilterRate,
+    selectFilterPrices,
+    selectFilterSort,
+  ],
+  (listBooks, category, rate, prices, sort) => {
+    const _listBooks = [...listBooks];
+
+    if (sort) {
+      if (sort === "low") {
+        _listBooks.sort((a, b) => a.price - b.price);
+      } else if (sort === "high") {
+        _listBooks.sort((a, b) => b.price - a.price);
+      }
+    }
+
+    return _listBooks.filter(
       (book) =>
         (!category ? true : book.category === category) &&
         (!rate ? true : +book.rate >= rate) &&

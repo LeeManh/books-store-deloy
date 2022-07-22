@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { Rate, message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 import { selectBooks } from "../books/booksSlice";
 import { DividerStyled } from "../../components/common/Devider.styled";
@@ -65,6 +66,7 @@ const Button = styled.button`
 
 const FilterBook = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const books = useSelector(selectBooks);
 
   const categories = new Set();
@@ -74,10 +76,12 @@ const FilterBook = () => {
 
   const handleClickCategory = (e) => {
     dispatch(categoryChange(e.target.innerText));
+    navigate(`?page=1`);
   };
 
   const handleClickRates = (n) => {
     dispatch(rateChange(n));
+    navigate(`?page=1`);
   };
 
   const handleClickPrices = () => {
@@ -94,6 +98,7 @@ const FilterBook = () => {
     }
 
     dispatch(pricesChange(prices));
+    navigate(`?page=1`);
   };
 
   return (

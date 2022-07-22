@@ -7,6 +7,7 @@ import ListBooks from "../features/books/ListBooks";
 import FilterBook from "../features/filter/FilterBook";
 import InputFilter from "../features/filter/InputFilter";
 import Pagination from "../components/Pagination";
+import Sort from "../features/filter/Sort";
 
 const HomeWrapper = styled.div`
   --width-filter: 240px;
@@ -55,6 +56,7 @@ const Home = () => {
         <Content>
           <Title>Nhà Sách Tiki</Title>
           <Banner />
+          <Sort />
           <InputFilter />
           <ListBooks />
           <PaginationWrapper>

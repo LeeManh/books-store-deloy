@@ -15,8 +15,13 @@ import { Section } from "../../globalStyles";
 const ListBooks = () => {
   const { search } = useLocation();
 
-  const page = new URLSearchParams(search).get("page") || 1;
-  const [limit, setLimit] = useState(5);
+  const page = useMemo(
+    () => Number(new URLSearchParams(search).get("page")) || 1,
+    [search]
+  );
+  // console.log({ page });
+
+  const [limit, setLimit] = useState(10);
 
   const { listBooks, status, error } = useSelector(
     createStructuredSelector({
@@ -27,10 +32,7 @@ const ListBooks = () => {
   );
   // console.log({ listBooks });
 
-  const listBooksRender = useMemo(
-    () => listBooks.slice((page - 1) * limit, page * limit),
-    [listBooks, page, limit]
-  );
+  const listBooksRender = listBooks.slice((page - 1) * limit, page * limit);
   // console.log({ listBooksRender });
 
   let content;

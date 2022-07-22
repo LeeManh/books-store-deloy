@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 import { Row, Col } from "antd";
 import { useLocation } from "react-router-dom";
@@ -22,7 +22,10 @@ const SearchResultPage = () => {
   const { search } = useLocation();
   // console.log({ search });
 
-  const text = new URLSearchParams(search).get("title");
+  const text = useMemo(
+    () => new URLSearchParams(search).get("title") || "",
+    [search]
+  );
   // console.log({ text });
 
   const books = useSelector((state) => selectBookSearch(state, text));
