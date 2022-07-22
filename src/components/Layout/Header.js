@@ -2,12 +2,14 @@ import { Input, Badge } from "antd";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 import { BiSearchAlt } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
-// import { AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import { Container } from "../../globalStyles";
 import { selectDataCart } from "../../features/cart/cartSlice";
+import Auth from "../Auth";
 
 const { Search } = Input;
 
@@ -101,6 +103,17 @@ const Text = styled.div`
 const Header = () => {
   const navigate = useNavigate();
   const dataCart = useSelector(selectDataCart);
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   const onSearch = (value) => {
     if (!value.trim()) return;
 
@@ -137,6 +150,15 @@ const Header = () => {
           </SearchWrapper>
 
           <ActionsWrapper>
+            <ButtonWrapper onClick={showModal}>
+              <IconLink as={"div"}>
+                <AiOutlineUser className="icon" />
+              </IconLink>
+              <Text>Tài khoản</Text>
+            </ButtonWrapper>
+
+            <Auth isModalVisible={isModalVisible} handleCancel={handleCancel} />
+
             <ButtonWrapper>
               <Badge count={dataCart.length} showZero className="badgecustom">
                 <IconLink to="cart">
