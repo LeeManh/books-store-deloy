@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 ## FE
-   react, redux, redux-toolkit, redux-saga, redux-persist, styled-components, swiper, antd
+   react, redux, redux-toolkit, redux-saga, redux-persist, styled-components, swiper, antd, axios
 ## BE 
   mock rest api with json-server
 
