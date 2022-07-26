@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { Container } from "../../globalStyles";
 import BreadcrumbComponent from "./Breadcrumb";
+import Footer from "./Footer";
 import Header from "./Header";
 
 const Layout = () => {
@@ -13,6 +14,7 @@ const Layout = () => {
         <BreadcrumbComponent />
         <Outlet />
       </Container>
+      <Footer />
     </main>
   );
 };
