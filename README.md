@@ -5,8 +5,11 @@
 ## BE 
   mock rest api with json-server
 
-## `npm start` to run
+### `npm start` 
+Run npm start to start
 
+### `npm run dev`
+To run BE
 
 ![image](https://user-images.githubusercontent.com/63250449/180860583-859a16f5-e90a-4071-9e07-b71f5873b3e1.png)
 
