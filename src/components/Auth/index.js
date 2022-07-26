@@ -121,6 +121,7 @@ const Auth = ({ isModalVisible, handleCancel }) => {
 
   const onFinish = (values) => {
     console.log("Success:", values);
+
     form.resetFields();
   };
 
@@ -167,24 +168,20 @@ const Auth = ({ isModalVisible, handleCancel }) => {
             autoComplete="off"
           >
             <Form.Item
-              name="username"
+              name="user"
               rules={[
                 {
-                  type: "email",
-                  message: "Vui lòng nhập đúng định dạng email!",
-                },
-                {
                   required: true,
-                  message: "Vui lòng nhập email!",
+                  message: "Vui lòng nhập tên tài khoản!",
                 },
               ]}
               hasFeedback
             >
-              <Input placeholder="abc@email.com" />
+              <Input placeholder="Tên tài khoản" />
             </Form.Item>
 
             <Form.Item
-              name="password"
+              name="pwd"
               rules={[
                 {
                   required: true,
@@ -199,7 +196,7 @@ const Auth = ({ isModalVisible, handleCancel }) => {
             {isCreatAccount && (
               <Form.Item
                 name="confirm"
-                dependencies={["password"]}
+                dependencies={["pwd"]}
                 hasFeedback
                 rules={[
                   {
@@ -208,7 +205,7 @@ const Auth = ({ isModalVisible, handleCancel }) => {
                   },
                   ({ getFieldValue }) => ({
                     validator(_, value) {
-                      if (!value || getFieldValue("password") === value) {
+                      if (!value || getFieldValue("pwd") === value) {
                         return Promise.resolve();
                       }
 
