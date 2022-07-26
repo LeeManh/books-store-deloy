@@ -42,6 +42,10 @@ const LogoImgUnder = styled.img`
 const SearchWrapper = styled.div`
   width: 60%;
 
+  @media screen and (max-width: 800px) {
+    width: 50%;
+  }
+
   @media screen and (max-width: 666px) {
     width: 70%;
   }
