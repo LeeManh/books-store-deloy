@@ -1,5 +1,8 @@
 # Getting Started with Create React App
 
+## demo
+https://book-store-le-manh.netlify.app
+
 ## FE
    react, redux, redux-toolkit, redux-saga, redux-persist, styled-components, swiper, antd, axios
 ## BE 
