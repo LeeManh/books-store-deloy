@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://localhost:3500",
+  baseURL: "https://book-store-deloy.herokuapp.com/",
   headers: {
-    "Content-type": "application/json; charset=UTF-8",
+    "Content-type": "application/json",
   },
 });
